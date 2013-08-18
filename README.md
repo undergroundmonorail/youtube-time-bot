@@ -1,0 +1,1 @@
+This bot scours the comments of any given subreddit for a time posted on a link to a youtube video. It then links to that part of the video.
