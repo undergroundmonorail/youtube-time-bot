@@ -12,7 +12,7 @@ def quick_url(comment):  # 100% stolen from /u/bboe's alert.py (dft.ba/-alert-py
             .format(comment.subreddit.display_name, to_id(comment.link_id),
                     comment.id))
 
-def footer():
+def footer(footers):
     # Choose a snarky message to add to the end of each comment.
     return "\n____\n^^{}".format(choice(footers).replace(' ', '&nbsp;').format(username))
 
@@ -111,7 +111,7 @@ def main():
                                                                                                             # the current running comment (if it exists)
                                                                                                             # and the link for the new time
                         if rep != "":                                  # If there's a comment to write at all,
-                            reply = comment.reply(rep[1:] + footer())  # write it with the footer at the end.
+                            reply = comment.reply(rep[1:] + footer(footers))  # write it with the footer at the end.
                             print "Comment posted:",                   # Additionally, strip the leading space
                             print quick_url(reply)                     # because it bothers me.
 
