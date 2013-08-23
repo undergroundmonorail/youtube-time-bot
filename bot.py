@@ -107,7 +107,7 @@ def main():
                                     time_s += int(time_c[::-1][2]) * 3600                   # seconds + (hours * 3600) = total_seconds
                                 print "Time in seconds:",
                                 print time_s
-                                rep = "{} [{}]({}#t={}s)".format(rep, time, comment.submission.url, time_s) # Updates the comment body to include
+                                rep = "{} [{}]({}&t={}s)".format(rep, time, comment.submission.url, time_s) # Updates the comment body to include
                                                                                                             # the current running comment (if it exists)
                                                                                                             # and the link for the new time
                         if rep != "":                                  # If there's a comment to write at all,
@@ -129,6 +129,8 @@ def main():
                     r.send_message(owner_username, "Message from {}".format(message.author.name),
                     "**Subject:** {}\n\n**Body:** {}\n\n[[x]](http://www.reddit.com/message/compose/?to={}&subject=Re: {})".format(message.subject, message.body, message.author.name, message.subject))
                 message.mark_as_read()
+            
+            sleep(30)
 
         except ConnectionError:
             print "No response from reddit, sleeping..."
